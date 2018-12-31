@@ -4,15 +4,8 @@ import java.util.Scanner;
 
 public class Student {
 	private String name;
-	private int[] mark = new int[3];
-
-	public String getName() {
-		return name;
-	}
-
-	public int[] getMark() {
-		return mark;
-	}
+	private int[] marks = new int[3];
+	private double avgMark;
 
 	public void setName() {
 		Scanner sc = new Scanner(System.in);
@@ -24,17 +17,43 @@ public class Student {
 		this.name = sc.nextLine();
 	}
 
-	public void setMark() {
-		for (int i = 0; i < mark.length; i++) {
+	public String getName() {
+		return name;
+	}
+
+	public void setMarks() {
+		for (int i = 0; i < marks.length; i++) {
 			Scanner sc = new Scanner(System.in);
+			do {
 				System.out.print("Please, specify a mark: ");
 				while (!sc.hasNextInt()) {
-					System.out.print("You have entered an incorect value! ");
-					sc.next();
+					System.out.print("Please, specify a mark: ");
+					sc.next();				
 				}
-				this.mark[i] = sc.nextInt();
+				this.marks[i] = sc.nextInt();
+			} while (this.marks[i] < 2 || this.marks[i] > 5);			
 		}
 	}
-	
+
+	public int[] getMarks() {
+		return marks;
+	}
+
+	public double setAvgMark(int[] marks) {
+		int sum = 0;
+		if (marks.length == 0) {
+			this.avgMark = 0;
+		} else {
+			for (int i = 0; i < marks.length; i++) {
+				sum = sum + marks[i];
+			}
+			this.avgMark = (double) sum / marks.length;
+		}
+		return this.avgMark;
+	}
+
+	public double getAvgMark() {
+		return avgMark;
+	}
 
 }
