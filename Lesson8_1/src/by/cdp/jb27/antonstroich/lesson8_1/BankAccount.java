@@ -1,20 +1,29 @@
 package by.cdp.jb27.antonstroich.lesson8_1;
 
 public class BankAccount {
-	private int value;
+	private int id;
+	private double value;
 	private String name;
 
-	public BankAccount (int _value, String _name ) {
+	public BankAccount (int _id, double _value, String _name ) {
+		id =_id;
 		value=_value;
-		name =_name;
-		
+		name =_name;	
 	}
 	
-	public int getValue() {
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public double getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 
@@ -37,10 +46,13 @@ public class BankAccount {
 
 		BankAccount account = (BankAccount) obj;
 
-		if (value != account.value) {
+		if (id != account.id) {
 			return false;
 		}
-
+        
+		if (Double.doubleToLongBits(value) != Double.doubleToLongBits(account.value)) {
+			return false;
+		}
 		if (name == null && account.name != null || !name.equals(account.name)) {
 			return false;
 		}
@@ -50,12 +62,18 @@ public class BankAccount {
     
 	@Override
 	public int hashCode() {	
-		return (int) 31 * value + ((name == null) ? 0 : name.hashCode());
+		int result = 1;
+		int prime = 27;
+		result = result * prime + id;
+		long x = 0;
+		result = result * prime + (int)(x ^ (x >>> 32));
+		result = result * prime + (int) ((name == null) ? 0 : name.hashCode());
+		return result;
 	}
 	
 	@Override
 	public String toString () {
-		return "BankAccount [name = " + name + "; value= " + value + "]";
+		return "This BankAccount [id = " + id + "; name = " + name + "; value= " + value + "]";
 	}
 	
 	
