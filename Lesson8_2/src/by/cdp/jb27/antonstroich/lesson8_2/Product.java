@@ -3,12 +3,12 @@ package by.cdp.jb27.antonstroich.lesson8_2;
 public class Product {
 	private int id;
 	private String name;
-	private double value;
+	private double cost;
 
-	public Product(int id, String name, double value) {
+	public Product(int id, String name, double cost) {
 		this.id = id;
 		this.name = name;
-		this.value = value;
+		this.cost = cost;
 	}
 
 	public int getId() {
@@ -27,12 +27,12 @@ public class Product {
 		this.name = name;
 	}
 
-	public double getValue() {
-		return value;
+	public double getCost() {
+		return cost;
 	}
 
-	public void setValue(double value) {
-		this.value = value;
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class Product {
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		long temp;
-		temp = Double.doubleToLongBits(value);
+		temp = Double.doubleToLongBits(cost);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
@@ -63,14 +63,15 @@ public class Product {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value))
+		if (Double.doubleToLongBits(cost) != Double.doubleToLongBits(other.cost))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", value=" + value + "]";
+		return "Product details: id= " + id + "; name= " + name + "; cost= " + cost + "BYN";
 	}
 
 }
+
