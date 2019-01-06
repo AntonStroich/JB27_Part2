@@ -6,16 +6,18 @@ public class MyPayment {
 
 	public static void main(String[] args) {
 		Payment newPayment = new Payment();
-		MyPayment.createMyPayment(newPayment);
+		newPayment.add(new Product(12, "Chair", 112.99));
+		newPayment.add(new Product(15, "Bed", 222.99));
+		newPayment.add(new Product(21, "Table", 115));
+		newPayment.add(new Product(12, "Chair", 112.99));
 		MyPayment.printMyPayment(newPayment);
-		System.out.println("Your payment total cost = " + MyPayment.costMyPayment(newPayment) + "BYN");
-	}
+		MyPayment.costMyPayment(newPayment);
+		MyPayment.findMyProduct(newPayment, "Table");
+		newPayment.remove(new Product(21, "Table", 115));
+		MyPayment.printMyPayment(newPayment);
+		MyPayment.costMyPayment(newPayment);
+		MyPayment.findMyProduct(newPayment, "Table");
 
-	public static void createMyPayment(Payment newPayment) {
-		newPayment.add(new Product(12, "Winston", 12.99));
-		newPayment.add(new Product(15, "Camel", 22.99));
-		newPayment.add(new Product(21, "Pall Mall", 15));
-		newPayment.add(new Product(12, "Winston", 12.99));
 	}
 
 	public static void printMyPayment(Payment newPayment) {
@@ -25,14 +27,27 @@ public class MyPayment {
 			Product newProduct = printPurchase.get(i);
 			System.out.println(newProduct);
 		}
-	}	
-	public static double costMyPayment(Payment newPayment) {
-		ArrayList<Product> printPurchase = newPayment.getPurchase();
+	}
+
+	public static void costMyPayment(Payment newPayment) {
+		ArrayList<Product> calculateCostPurchase = newPayment.getPurchase();
 		double sum = 0;
-		for (int i = 0; i < printPurchase.size(); i++) {
-			Product newProduct = printPurchase.get(i);
+		for (int i = 0; i < calculateCostPurchase.size(); i++) {
+			Product newProduct = calculateCostPurchase.get(i);
 			sum = sum + newProduct.getCost();
 		}
-		return sum;
+		System.out.println("Your payment total cost = " + sum + " BYN");
 	}
-}
+
+	public static void findMyProduct(Payment newPayment, String name) {
+			Product selectedProduct = newPayment.findByName(name);
+			if (selectedProduct == null) {
+				System.out.println("There is no a " + name +  " in the purchase" );
+			}
+			else { 
+				System.out.println("There is a " + name +  " in the purchase" );
+			}
+		}
+		
+	}
+

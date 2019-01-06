@@ -70,7 +70,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product details: id= " + id + "; name= " + name + "; cost= " + cost + "BYN";
+		return "Product details: id = " + id + "; name = " + name + "; cost = " + cost + "BYN";
 	}
 
 }
