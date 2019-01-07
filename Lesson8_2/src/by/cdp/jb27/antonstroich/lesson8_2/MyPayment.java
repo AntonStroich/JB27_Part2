@@ -12,7 +12,7 @@ public class MyPayment {
 		newPayment.add(new Product(12, "Chair", 112.99));
 		MyPayment.printMyPayment(newPayment);
 		MyPayment.costMyPayment(newPayment);
-		MyPayment.findMyProduct(newPayment, "Table");
+		newPayment.findByName("Table");
 		newPayment.remove(new Product(21, "Table", 115));
 		MyPayment.printMyPayment(newPayment);
 		MyPayment.costMyPayment(newPayment);
@@ -20,12 +20,13 @@ public class MyPayment {
 
 	}
 
+
 	public static void printMyPayment(Payment newPayment) {
 		ArrayList<Product> printPurchase = newPayment.getPurchase();
 		System.out.println("Your Payment details: ");
 		for (int i = 0; i < printPurchase.size(); i++) {
 			Product newProduct = printPurchase.get(i);
-			System.out.println(newProduct);
+			System.out.println("Product details: id = " + newProduct.getId() + "; name = " + newProduct.getName() + "; cost = " + newProduct.getCost() + " BYN");
 		}
 	}
 
@@ -40,14 +41,12 @@ public class MyPayment {
 	}
 
 	public static void findMyProduct(Payment newPayment, String name) {
-			Product selectedProduct = newPayment.findByName(name);
-			if (selectedProduct == null) {
-				System.out.println("There is no a " + name +  " in the purchase" );
-			}
-			else { 
-				System.out.println("There is a " + name +  " in the purchase" );
-			}
+		Product selectedProduct = newPayment.findByName(name);
+		if (selectedProduct == null) {
+			System.out.println("There is no a " + name + " in the purchase");
+		} else {
+			System.out.println("There is a " + name + " in the purchase");
 		}
-		
 	}
 
+}
