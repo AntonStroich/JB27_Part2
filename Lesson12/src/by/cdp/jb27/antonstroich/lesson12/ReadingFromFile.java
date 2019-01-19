@@ -16,8 +16,11 @@ public class ReadingFromFile {
 
 		try {
 			ReadingFromFile.createFile(path, bookInfo);
+		} catch (FileNotFoundException e) {
+			System.out.println("Impossible to create the file because the path was not found!");
+			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("Error occurs after creaion the file!");
+			System.out.println("Impossible to create the file because there is no access to the file!");
 			e.printStackTrace();
 		}
 
