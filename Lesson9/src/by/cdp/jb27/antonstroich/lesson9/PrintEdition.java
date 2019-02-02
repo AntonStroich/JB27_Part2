@@ -1,24 +1,16 @@
 package by.cdp.jb27.antonstroich.lesson9;
 
 public abstract class PrintEdition {
-
-	private int id;
-
 	private String name;
 
 	private double price;
 
 	private int yearPublished;
 
-	public PrintEdition(int id, String name, double price, int yearPublished) {
-		this.id = id;
+	public PrintEdition(String name, double price, int yearPublished) {
 		this.name = name;
 		this.price = price;
 		this.yearPublished = yearPublished;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 	public String getName() {
@@ -34,10 +26,14 @@ public abstract class PrintEdition {
 	}
 
 	@Override
+	public String toString() {
+		return "Edition [name=" + name + ", price=" + price + ", yearPublished=" + yearPublished + "]";
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(price);
@@ -55,8 +51,6 @@ public abstract class PrintEdition {
 		if (getClass() != obj.getClass())
 			return false;
 		PrintEdition other = (PrintEdition) obj;
-		if (id != other.id)
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -68,5 +62,4 @@ public abstract class PrintEdition {
 			return false;
 		return true;
 	}
-
 }

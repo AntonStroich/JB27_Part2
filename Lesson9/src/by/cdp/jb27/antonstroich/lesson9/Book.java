@@ -2,18 +2,21 @@ package by.cdp.jb27.antonstroich.lesson9;
 
 public class Book extends PrintEdition {
 
-	private String author;
-
-	public Book(int id, String name, double price, int yearPublished, String author) {
-
-		super(id, name, price, yearPublished);
-
+	public Book(String name, double price, int yearPublished, String author) {
+		super(name, price, yearPublished);
 		this.author = author;
-
 	}
+
+	private String author;
 
 	public String getAuthor() {
 		return author;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [Author=" + author + ", Name=" + getName() + ", Price=" + getPrice() + ", Year Published="
+				+ getYearPublished() + "]";
 	}
 
 	@Override
@@ -39,12 +42,6 @@ public class Book extends PrintEdition {
 		} else if (!author.equals(other.author))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Book [Author=" + author + ", Id=" + getId() + ", Name=" + getName() + ", Price=" + getPrice()
-				+ ", Year Published=" + getYearPublished() + "]";
 	}
 
 }

@@ -1,22 +1,27 @@
 package by.cdp.jb27.antonstroich.lesson9;
 
-public class Journal extends PrintEdition {
-
+public class Newspaper extends PrintEdition {
 	private int number;
 
-	public Journal(String name, double price, int yearPublished, int number) {
+	private String periodicity;
+
+	public Newspaper(String name, double price, int yearPublished, int number, String periodicity) {
 		super(name, price, yearPublished);
 		this.number = number;
+		this.periodicity = periodicity;
 	}
 
 	public int getNumber() {
 		return number;
 	}
 
-	@Override
+	public String getPeriodicity() {
+		return periodicity;
+	}
+	
 	public String toString() {
 		return "Journal [Name=" + getName() + ", Price=" + getPrice() + ", Year Published=" + getYearPublished()
-				+ "Number=" + number + "]";
+				+ "Number=" + number + "Periodicity" + periodicity + "]";
 	}
 
 	@Override
@@ -24,6 +29,7 @@ public class Journal extends PrintEdition {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + number;
+		result = prime * result + ((periodicity == null) ? 0 : periodicity.hashCode());
 		return result;
 	}
 
@@ -35,8 +41,13 @@ public class Journal extends PrintEdition {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Journal other = (Journal) obj;
+		Newspaper other = (Newspaper) obj;
 		if (number != other.number)
+			return false;
+		if (periodicity == null) {
+			if (other.periodicity != null)
+				return false;
+		} else if (!periodicity.equals(other.periodicity))
 			return false;
 		return true;
 	}
