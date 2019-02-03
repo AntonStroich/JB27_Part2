@@ -10,22 +10,13 @@ public class Library {
 		return library;
 	}
 
-	public void add(Book book) {
-		library.add(book);
+	public void add(Book item) {
+		library.add(item);
 
 	}
 
-	public boolean delete(Book book) {
-		return library.remove(book);
-	}
-
-	public Book findByAuthor(String author) {
-		for (Book book : library) {
-			if (book.getName().equals(book)) {
-				return book;
-			}
-		}
-		return null;
+	public void delete(Book item) {
+		library.remove(item);
 	}
 
 }

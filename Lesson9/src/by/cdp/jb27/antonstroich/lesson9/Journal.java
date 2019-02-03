@@ -4,8 +4,8 @@ public class Journal extends PrintEdition {
 
 	private int number;
 
-	public Journal(String name, double price, int yearPublished, int number) {
-		super(name, price, yearPublished);
+	public Journal(String title, double price, int yearPublished, int number) {
+		super(title, price, yearPublished);
 		this.number = number;
 	}
 
@@ -15,7 +15,7 @@ public class Journal extends PrintEdition {
 
 	@Override
 	public String toString() {
-		return "Journal [Name=" + getName() + ", Price=" + getPrice() + ", Year Published=" + getYearPublished()
+		return "Journal [Title=" + getTitle() + ", Price=" + getPrice() + ", Year Published=" + getYearPublished()
 				+ "Number=" + number + "]";
 	}
 

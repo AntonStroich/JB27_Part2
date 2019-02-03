@@ -5,8 +5,8 @@ public class Newspaper extends PrintEdition {
 
 	private String periodicity;
 
-	public Newspaper(String name, double price, int yearPublished, int number, String periodicity) {
-		super(name, price, yearPublished);
+	public Newspaper(String title, double price, int yearPublished, int number, String periodicity) {
+		super(title, price, yearPublished);
 		this.number = number;
 		this.periodicity = periodicity;
 	}
@@ -18,9 +18,9 @@ public class Newspaper extends PrintEdition {
 	public String getPeriodicity() {
 		return periodicity;
 	}
-	
+
 	public String toString() {
-		return "Journal [Name=" + getName() + ", Price=" + getPrice() + ", Year Published=" + getYearPublished()
+		return "Journal [Title=" + getTitle() + ", Price=" + getPrice() + ", Year Published=" + getYearPublished()
 				+ "Number=" + number + "Periodicity" + periodicity + "]";
 	}
 

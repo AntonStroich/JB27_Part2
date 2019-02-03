@@ -2,8 +2,8 @@ package by.cdp.jb27.antonstroich.lesson9;
 
 public class Book extends PrintEdition {
 
-	public Book(String name, double price, int yearPublished, String author) {
-		super(name, price, yearPublished);
+	public Book(String title, double price, int yearPublished, String author) {
+		super(title, price, yearPublished);
 		this.author = author;
 	}
 
@@ -15,7 +15,7 @@ public class Book extends PrintEdition {
 
 	@Override
 	public String toString() {
-		return "Book [Author=" + author + ", Name=" + getName() + ", Price=" + getPrice() + ", Year Published="
+		return "Book [Author=" + author + ", Title=" + getTitle() + ", Price=" + getPrice() + ", Year Published="
 				+ getYearPublished() + "]";
 	}
 
