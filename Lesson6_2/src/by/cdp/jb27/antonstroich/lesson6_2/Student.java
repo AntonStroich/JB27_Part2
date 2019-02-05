@@ -8,7 +8,6 @@ public class Student {
 
 	private int[] marks;
 
-	//private double avgMark;
 
 	public void setName(String name) {
 		this.name = name;

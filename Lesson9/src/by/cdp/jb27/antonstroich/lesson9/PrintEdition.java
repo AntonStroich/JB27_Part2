@@ -1,6 +1,7 @@
 package by.cdp.jb27.antonstroich.lesson9;
 
 public abstract class PrintEdition {
+	
 	private String title;
 
 	private double price;

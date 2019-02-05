@@ -2,12 +2,12 @@ package by.cdp.jb27.antonstroich.lesson9;
 
 public class Book extends PrintEdition {
 
+	private String author;
+
 	public Book(String title, double price, int yearPublished, String author) {
 		super(title, price, yearPublished);
 		this.author = author;
 	}
-
-	private String author;
 
 	public String getAuthor() {
 		return author;

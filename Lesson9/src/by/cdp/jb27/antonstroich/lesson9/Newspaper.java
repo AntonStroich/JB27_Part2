@@ -1,6 +1,7 @@
 package by.cdp.jb27.antonstroich.lesson9;
 
 public class Newspaper extends PrintEdition {
+
 	private int number;
 
 	private String periodicity;

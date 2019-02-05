@@ -16,12 +16,21 @@ public class ReadingFromFile {
 
 		try {
 			ReadingFromFile.createFile(path, bookInfo);
+
+			ArrayList<String> bookList = ReadingFromFile.fileToArray(path);
+
+			ReadingFromFile.printArrayBook(bookList);
+
 		} catch (FileNotFoundException e) {
+
 			System.out.println("Impossible to create the file because the path was not found!");
 			e.printStackTrace();
+
 		} catch (IOException e) {
+
 			System.out.println("Impossible to create the file because there is no access to the file!");
 			e.printStackTrace();
+
 		}
 
 		ArrayList<String> bookList = ReadingFromFile.fileToArray(path);
