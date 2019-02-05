@@ -33,9 +33,6 @@ public class ReadingFromFile {
 
 		}
 
-		ArrayList<String> bookList = ReadingFromFile.fileToArray(path);
-
-		ReadingFromFile.printArrayBook(bookList);
 	}
 
 	public static void createFile(String path, String bookInfo) throws IOException {
